@@ -1,0 +1,228 @@
+---
+title: "Introduction à l'analyse spatiale"
+subtitle: "Master Ii Géomatique, USSEIN"
+author: "Hugues Pecout"
+institute: UMR8504 Géographie-Cités 
+img : img/cnrs.png
+title-slide-attributes:
+  data-background-image: img/USSEIN.png
+  data-background-size: 8%
+  data-background-position: 2% 2%
+footer: "Master II Géomatique, USSEIN, le 13 mai 2025"
+  
+format: 
+  revealjs:
+    template-partials:
+      - title-slide.html
+    fig-align: center
+    smaller: TRUE
+    theme : [custom.scss]
+    show-slide-number: all
+    slide-number: TRUE
+    code-line-numbers: FALSE
+    chalkboard: TRUE
+    transition: fade
+    transition-speed: fast
+    menu: TRUE
+
+execute:
+  echo: true
+  output: true
+  warning: true
+  include: true
+  cache: true
+
+date: 23 05 2024
+date-format: "D MMM YYYY"
+lang: fr
+logo: "img/USSEIN.png"
+css: style.css
+
+---
+
+## Définition
+
+
+> « Analyse formalisée de la configuration et des propriétés de l’espace géographique, tel qu’il est produit et vécu par les sociétés humaines.»
+>
+> Pumain D., Saint-Julien Th., 2010, Analyse spatiale - Localisations. Paris, Colin, Cursus, 162p
+
+> Une démarche « qui met l’accent sur l’identification de formes ou de structures spatiales, sur les relations entre les objets géographiques, sur les processus de changement. »
+>
+> Feuillet et al., 2019
+
+L’analyse spatiale est l’**ensemble de théories et de méthodes permettant d’explorer, de modéliser et d’interpréter des phénomènes en tenant compte de leur localisation géographique et des relations spatiales entre entités**.
+
+Approche **hypothético-déductive** (démarche nomothétique).
+
+
+## Les fondamentaux
+
+
+Trois idées clés :
+
+- Elle s’appuie sur des données géoréférencées (avec des coordonnées dans l’espace).
+- Elle cherche à détecter des structures spatiales (clusters, gradients, ruptures).
+- Elle mobilise des outils de statistique, géomatique et modélisation.
+    
+    
+  Espace isotrope / anisotrope
+
+Discret / continu
+
+Notions de distance, d’adjacence, de voisinage
+
+## Analyse spatiale et géomatique 
+
+Place de l’analyse spatiale dans la géomatique : croisement entre géographie, statistique, informatique.
+
+## Pourquoi faire ? Application
+
+1. Comprendre la distribution des phénomènes
+
+    Les phénomènes sociaux, économiques, environnementaux ne sont pas répartis de manière aléatoire dans l’espace.
+
+    L’analyse spatiale aide à identifier des motifs (clusters, gradients, ruptures) qui seraient invisibles dans des données non géographiques.
+
+Exemple : Les maladies infectieuses peuvent suivre des patterns géographiques liés à la densité de population ou aux infrastructures.
+2. Détecter des relations spatiales
+
+    Proximité géographique peut influencer les phénomènes : "les choses proches sont plus semblables" (1ʳᵉ loi de Tobler).
+
+    Cela permet de modéliser les interdépendances entre lieux : propagation, diffusion, concurrence.
+
+Exemple : Comment la proximité d’une gare augmente la valeur immobilière alentour.
+3. Aider à la prise de décision
+
+    Les décideurs publics, urbanistes, gestionnaires d’infrastructures utilisent l'analyse spatiale pour optimiser leurs choix.
+
+    Cela permet de cibler les interventions : où construire un hôpital, où renforcer la protection de l’environnement, etc.
+
+Exemple : Planification des secours en cas de catastrophe naturelle.
+4. Prendre en compte l’effet d’échelle et le contexte spatial
+
+    Les résultats changent selon l’échelle (quartier vs ville vs région) : c’est l’effet MAUP (Modifiable Areal Unit Problem).
+
+    Analyser l’espace permet d’adapter les méthodes au bon niveau d’analyse.
+
+Exemple : Le chômage peut paraître homogène à l’échelle régionale mais très contrasté à l’échelle communale.
+5. Aller au-delà des analyses classiques
+
+    Les méthodes statistiques standards ignorent souvent la position géographique des observations.
+
+    L’analyse spatiale ajoute une nouvelle dimension d’interprétation.
+
+Exemple : Deux quartiers avec le même taux de criminalité peuvent avoir des dynamiques spatiales très différentes (dispersion vs concentration).
+
+Analyser l’espace, c’est mieux comprendre, mieux expliquer et mieux agir sur les phénomènes complexes du monde réel.
+
+
+## Notions théoriques fondamantales (I)
+
+1er loi de la géographie de Waldo Tobler (1970)
+
+
+> « Tout est lié à tout, mais les choses proches sont plus liées que les choses éloignées. »
+
+Signification :
+
+- Les phénomènes géographiques sont spatialement auto-corrélés. La proximité spatiale implique souvent une similarité : plus deux objets sont proches, plus ils ont de chances de partager des caractéristiques.
+
+**Loi fondamentale en analyse spatiale** : elle justifie l'utilisation d'outils qui prennent en compte l’emplacement.
+
+👉 Concepts de dépendance, de proximité, d’interaction, d'autocorrélation
+
+
+Exemples : Les prix de l’immobilier varient plus en fonction de la proximité immédiate que de tendances globales.
+
+
+
+## Notions théoriques fondamantales (I)
+
+2ᵉ loi de Tobler (1999, moins formelle)
+
+> « Le phénomène géographique couvre l’espace continûment, sauf là où il ne le fait pas. »
+
+Signification :
+
+La plupart des phénomènes varient de manière continue dans l’espace (ex : température, densité de population…). Mais des discontinuités existent (ex : falaises, rivières, frontières administratives). Cette loi est un rappel que l’espace n'est pas toujours homogène ni sans rupture.
+
+
+Sans prendre en compte cette 2ᵉ loi, on risquerait d'appliquer des interpolations ou des modèles inadaptés.
+
+## Test 
+
+Ces lois fondent l'usage de matrices de voisinage, indices d’autocorrélation spatiale (Moran's I, Getis-Ord), lissage spatial et modèles spatiaux.
+
+Elles expliquent pourquoi on ne peut pas utiliser naïvement des méthodes statistiques classiques sans ajuster pour les effets spatiaux.
+
+
+
+1. La 1ʳᵉ loi de Tobler est la base conceptuelle de l’analyse spatiale
+
+    « Tout est lié à tout, mais les choses proches sont plus liées que les choses éloignées. »
+
+    Cela veut dire que la localisation géographique a un impact sur les valeurs observées.
+
+    Dans l’analyse spatiale :
+
+        On s’attend à trouver des corrélations entre les objets proches dans l’espace.
+
+        On doit mesurer et prendre en compte cette dépendance spatiale.
+
+🔹 Sans cette loi, il ne serait pas pertinent de chercher des modèles spatiaux — car les phénomènes seraient complètement indépendants dans l’espace.
+2. La 1ʳᵉ loi justifie des outils d'analyse spécifiques
+
+    Statistiques spatiales :
+
+        Mesures d’autocorrélation spatiale : Moran’s I, Geary’s C, Getis-Ord Gi.
+
+        Analyses de clusters locaux (LISA).
+
+    Modèles spatiaux :
+
+        Régressions spatiales (qui corrigent l’effet de voisinage).
+
+        Modèles de diffusion spatiale (par ex. épidémies, innovations).
+
+    Méthodologies spatiales :
+
+        Construire des matrices de voisinage (qui est proche de qui ?)
+
+        Utiliser des pondérations spatiales.
+
+3. La 2ᵉ loi éclaire l’analyse des surfaces continues
+
+    « Les phénomènes varient de façon continue, sauf rupture. »
+
+    Cela aide à choisir les bonnes méthodes :
+
+        Pour des surfaces continues (ex : température, pollution) → interpolations spatiales (IDW, krigeage).
+
+        Attention aux discontinuités (ex : barrières naturelles ou administratives) qu’il faut modéliser correctement.
+
+🔹 Sans prendre en compte cette 2ᵉ loi, on risquerait d'appliquer des interpolations ou des modèles inadaptés.
+
+
+Loi de Tobler | Impact sur l’analyse spatiale
+1ʳᵉ loi : Proximité = Similarité | Justifie l’étude des corrélations spatiales et des clusters
+2ᵉ loi : Continuité sauf rupture | Guide les choix de modèles pour variables continues ou discontinues
+
+## Méthode et outil de base
+
+### Statistiques spatiales exploratoires
+
+### Analyse des relations spatiales
+
+### Régression spatiale (vue d’ensemble)
+
+## Avec R ?
+
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
