@@ -213,77 +213,170 @@
 
 
 </section>
-<section id="définition" class="slide level2">
-<h2>Définition</h2>
+<section id="analyse-spatiale" class="slide level2">
+<h2>Analyse spatiale ?</h2>
+<p><br>
+</p>
 <blockquote>
-<p>« Analyse formalisée de la configuration et des propriétés de l’espace géographique, tel qu’il est produit et vécu par les sociétés humaines.»</p>
+<p>« <em>Analyse formalisée de la configuration et des propriétés de l’espace géographique, tel qu’il est produit et vécu par les sociétés humaines.</em> »</p>
 <p>Pumain D., Saint-Julien Th., 2010, Analyse spatiale - Localisations. Paris, Colin, Cursus, 162p</p>
 </blockquote>
+<p><br>
+</p>
 <blockquote>
-<p>Une démarche « qui met l’accent sur l’identification de formes ou de structures spatiales, sur les relations entre les objets géographiques, sur les processus de changement. »</p>
+<p>Une démarche « <em>qui met l’accent sur l’identification de formes ou de structures spatiales, sur les relations entre les objets géographiques, sur les processus de changement.</em> »</p>
 <p>Feuillet et al., 2019</p>
 </blockquote>
+<p><br>
+</p>
+<div class="center">
 <p>L’analyse spatiale est l’<strong>ensemble de théories et de méthodes permettant d’explorer, de modéliser et d’interpréter des phénomènes en tenant compte de leur localisation géographique et des relations spatiales entre entités</strong>.</p>
-<p>Approche <strong>hypothético-déductive</strong> (démarche nomothétique).</p>
+<p>→ Approche <strong>hypothético-déductive</strong> (démarche nomothétique).</p>
+</div>
 </section>
 <section id="les-fondamentaux" class="slide level2">
 <h2>Les fondamentaux</h2>
-<p>Trois idées clés :</p>
+<div class="columns">
+<div class="column" style="width:100%;">
+<p><strong>L’analyse spatiale :</strong></p>
 <ul>
-<li><p>Elle s’appuie sur des données géoréférencées (avec des coordonnées dans l’espace).</p></li>
-<li><p>Elle cherche à détecter des structures spatiales (clusters, gradients, ruptures).</p></li>
-<li><p>Elle mobilise des outils de statistique, géomatique et modélisation.</p>
-<p>Espace isotrope / anisotrope</p></li>
+<li>S’appuie sur des <strong>données géoréférencées</strong> (avec des coordonnées dans l’espace);</li>
+<li>Cherche à <strong>détecter des structures spatiales</strong> (clusters, gradients, ruptures);</li>
+<li>Mobilise des outils de <strong>statistique, géomatique et modélisation</strong>.</li>
 </ul>
-<p>Discret / continu</p>
-<p>Notions de distance, d’adjacence, de voisinage</p>
+</div></div>
+<div class="columns">
+<div class="column" style="width:25%;">
+<p><img data-src="img/js.png"></p>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:70%;">
+<div class="center" style="margin-top:30px;">
+<p><strong>Un exemple historique</strong> : Épidémie de choléra (1854)</p>
+</div>
+<div class="soixantedix">
+<p><br>
+</p>
+<p>John Snow est un médecin britannique. Ces travaux sur la propagation du choléra dans le quartier de Soho à Londres en 1854 lui ont valu une place importante dans l’histoire de l’épidémiologie et de l’analyse spatiale.</p>
+</div>
+<div class="{columns}">
+<div class="column soixantedix" style="width:60%;">
+<p><br>
+</p>
+<p><strong>Carte de J. Snow</strong> indiquant les décès cholériques (points) survenus en août et septembre 1854 dans le quartier de Soho →</p>
+<p><br>
+<br>
+</p>
+<p><strong>John Snow va identifier la cause de l’épidémie de choléra en utilisant un procédé simple, mais innovant, qui repose sur le principe de fonctionnement de l’analyse spatiale…</strong></p>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:30%;">
+<p><img data-src="img/carte_js.png"></p>
+</div></div>
+</div></div>
 </section>
-<section id="analyse-spatiale-et-géomatique" class="slide level2">
-<h2>Analyse spatiale et géomatique</h2>
-<p>Place de l’analyse spatiale dans la géomatique : croisement entre géographie, statistique, informatique.</p>
+<section id="un-exemple-historique-épidémie-de-choléra" class="slide level2">
+<h2>Un exemple historique : Épidémie de choléra</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="img/plan_js.jpg"></p>
+</div><div class="column" style="width:40%;">
+<div style="margin-top:50px;">
+<p>John Snow va mettre en relation plusieurs couches d’information géographiques :</p>
+<ul>
+<li>Un <strong>plan du quartier</strong> (rues)<br>
+</li>
+<li>La <strong>localisation des décès</strong> (résidence)<br>
+</li>
+<li>La <strong>localisation des pompes à eau</strong></li>
+</ul>
+</div>
+<p><br>
+</p>
+<p><img data-src="img/zoom_js.jpg"></p>
+</div></div>
 </section>
-<section id="pourquoi-faire-application" class="slide level2">
-<h2>Pourquoi faire ? Application</h2>
-<ol type="1">
-<li><p>Comprendre la distribution des phénomènes</p>
-<p>Les phénomènes sociaux, économiques, environnementaux ne sont pas répartis de manière aléatoire dans l’espace.</p>
-<p>L’analyse spatiale aide à identifier des motifs (clusters, gradients, ruptures) qui seraient invisibles dans des données non géographiques.</p></li>
-</ol>
-<p>Exemple : Les maladies infectieuses peuvent suivre des patterns géographiques liés à la densité de population ou aux infrastructures. 2. Détecter des relations spatiales</p>
-<pre><code>Proximité géographique peut influencer les phénomènes : "les choses proches sont plus semblables" (1ʳᵉ loi de Tobler).
-
-Cela permet de modéliser les interdépendances entre lieux : propagation, diffusion, concurrence.</code></pre>
-<p>Exemple : Comment la proximité d’une gare augmente la valeur immobilière alentour. 3. Aider à la prise de décision</p>
-<pre><code>Les décideurs publics, urbanistes, gestionnaires d’infrastructures utilisent l'analyse spatiale pour optimiser leurs choix.
-
-Cela permet de cibler les interventions : où construire un hôpital, où renforcer la protection de l’environnement, etc.</code></pre>
-<p>Exemple : Planification des secours en cas de catastrophe naturelle. 4. Prendre en compte l’effet d’échelle et le contexte spatial</p>
-<pre><code>Les résultats changent selon l’échelle (quartier vs ville vs région) : c’est l’effet MAUP (Modifiable Areal Unit Problem).
-
-Analyser l’espace permet d’adapter les méthodes au bon niveau d’analyse.</code></pre>
-<p>Exemple : Le chômage peut paraître homogène à l’échelle régionale mais très contrasté à l’échelle communale. 5. Aller au-delà des analyses classiques</p>
-<pre><code>Les méthodes statistiques standards ignorent souvent la position géographique des observations.
-
-L’analyse spatiale ajoute une nouvelle dimension d’interprétation.</code></pre>
-<p>Exemple : Deux quartiers avec le même taux de criminalité peuvent avoir des dynamiques spatiales très différentes (dispersion vs concentration).</p>
-<p>Analyser l’espace, c’est mieux comprendre, mieux expliquer et mieux agir sur les phénomènes complexes du monde réel.</p>
+<section id="un-exemple-historique-épidémie-de-choléra-1" class="slide level2">
+<h2>Un exemple historique : Épidémie de choléra</h2>
+<p><strong>Cette mise en relation va lui permettre d’émettre une hypothèse sur la cause de l’épidémie.</strong></p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="img/simplify_js.png"></p>
+</div><div class="column soixante" style="width:40%;">
+<p><br>
+</p>
+<p>Détail de la deuxième carte par points de Snow montrant l’<strong>ajout de la ligne d’équidistance</strong>. Cholera Inquiry Committee, <em>Report on the Cholera Outbreak in the Parish of St.&nbsp;James, Westminster during the Autumn of 1854</em>, Londres, Churchill, 1855, pp.&nbsp;106-107.</p>
+<div class="center">
+<p><img data-src="img/equidistance.png"></p>
+</div>
+</div></div>
 </section>
-<section id="notions-théoriques-fondamantales-i" class="slide level2">
-<h2>Notions théoriques fondamantales (I)</h2>
+<section id="un-exemple-historique-épidémie-de-choléra-2" class="slide level2 scrollable">
+<h2>Un exemple historique : Épidémie de choléra</h2>
+<p><strong>Si John Snow avait utilisé un système d’information géographique….</strong></p>
+<div class="columns">
+<div class="column" style="width:57%;">
+<p><img data-src="img/pop_js.png"></p>
+</div><div class="column" style="width:43%;">
+<p><img data-src="img/potential_js.gif"></p>
+</div></div>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><img data-src="img/voronoi_js.png"></p>
+</div><div class="column" style="width:53%;">
+<p><img data-src="img/star_js.png"></p>
+</div></div>
+</section>
+<section id="pourquoi-faire" class="slide level2">
+<h2>Pourquoi faire ?</h2>
+<p><br>
+</p>
+<ul>
+<li><p><span class="bigbis"><strong>Comprendre la distribution des phénomènes</strong></span><br>
+Ex : Répartition et diffusion des maladies infectieuses</p></li>
+<li><p><span class="bigbis"><strong>Détecter des relations spatiales</strong></span><br>
+Ex : Prix immobiliers vs proximité spatiales</p></li>
+<li><p><span class="bigbis"><strong>Prendre en compte l’effet d’échelle et le contexte spatial</strong></span><br>
+Ex : Le chômage peut paraître homogène à l’échelle régionale mais très contrasté à l’échelle communale.</p></li>
+<li><p><span class="bigbis"><strong>Aller au-delà des analyses classiques</strong></span><br>
+Ex : Des quartiers avec le même taux de criminalité peuvent avoir des dynamiques spatiales différentes (dispersion vs concentration).</p></li>
+<li><p><span class="bigbis"><strong>Aider à la prise de décision</strong></span><br>
+Ex : Localisation d’un poste de secours</p></li>
+</ul>
+<div class="center bigbis">
+<p><strong>Analyser l’espace, c’est mieux comprendre, mieux expliquer et mieux agir sur les phénomènes complexes du monde réel.</strong></p>
+</div>
+</section>
+<section id="analyse-spatiale-géomatique" class="slide level2">
+<h2>Analyse spatiale ≠ géomatique</h2>
+<p><br>
+<br>
+</p>
+<div class="center bigquat">
+<p><span class="colour3 bigbis"><strong>Analyse spatiale</strong></span></p>
+<p>=</p>
+<p><span class="colour">Concept de la géographie</span><br>
++<br>
+<span class="colour">Statistique(s)</span><br>
++<br>
+<span class="colour">Cartographie</span><br>
++<br>
+<span class="colour3">Outils de la géomatique</span></p>
+</div>
+</section>
+<section id="notions-théoriques-fondamentales-i" class="slide level2">
+<h2>Notions théoriques fondamentales (I)</h2>
 <p>1er loi de la géographie de Waldo Tobler (1970)</p>
 <blockquote>
-<p>« Tout est lié à tout, mais les choses proches sont plus liées que les choses éloignées. »</p>
+<p>« <em>Tout est lié à tout, mais les choses proches sont plus liées que les choses éloignées.</em> »</p>
 </blockquote>
-<p>Signification :</p>
-<ul>
-<li>Les phénomènes géographiques sont spatialement auto-corrélés. La proximité spatiale implique souvent une similarité : plus deux objets sont proches, plus ils ont de chances de partager des caractéristiques.</li>
-</ul>
+<p>Cela signifie que les phénomènes géographiques sont spatialement auto-corrélés. La proximité spatiale implique souvent une similarité : <strong>plus deux objets sont proches, plus ils ont de chances de partager des caractéristiques.</strong></p>
 <p><strong>Loi fondamentale en analyse spatiale</strong> : elle justifie l’utilisation d’outils qui prennent en compte l’emplacement.</p>
 <p>👉 Concepts de dépendance, de proximité, d’interaction, d’autocorrélation</p>
 <p>Exemples : Les prix de l’immobilier varient plus en fonction de la proximité immédiate que de tendances globales.</p>
 </section>
-<section id="notions-théoriques-fondamantales-i-1" class="slide level2">
-<h2>Notions théoriques fondamantales (I)</h2>
+<section id="notions-théoriques-fondamentales-ii" class="slide level2">
+<h2>Notions théoriques fondamentales (II)</h2>
 <p>2ᵉ loi de Tobler (1999, moins formelle)</p>
 <blockquote>
 <p>« Le phénomène géographique couvre l’espace continûment, sauf là où il ne le fait pas. »</p>
@@ -291,6 +384,19 @@ L’analyse spatiale ajoute une nouvelle dimension d’interprétation.</code></
 <p>Signification :</p>
 <p>La plupart des phénomènes varient de manière continue dans l’espace (ex : température, densité de population…). Mais des discontinuités existent (ex : falaises, rivières, frontières administratives). Cette loi est un rappel que l’espace n’est pas toujours homogène ni sans rupture.</p>
 <p>Sans prendre en compte cette 2ᵉ loi, on risquerait d’appliquer des interpolations ou des modèles inadaptés.</p>
+</section>
+<section id="concepts-et-méthodes-en-analyse-spatiale" class="slide level2">
+<h2>Concepts et méthodes en analyse spatiale</h2>
+<div class="center">
+<p>On peut appliquer différents concepts et méthodes d’analyse spatiale en fonction de la nature des données étudiées. Par exemple :</p>
+<ul>
+<li><p><strong>Lieux et semis de points (données ponctuelles)</strong> : mesure de centre, de la dispersion, de concentration, de forme, de distance, de densité, d’interpolation, de potentiel…</p></li>
+<li><p><strong>Lien et réseau (données linéaires)</strong> : analyse de réseau/graphe…</p></li>
+<li><p><strong>Surfaces et régions (données surfaciques)</strong> : analyse de l’hétérogénéité, de homogénéité, calcul des discontinuités, de l’autocorrélation, discrétisation spatiale et régionalisation…</p></li>
+<li><p><strong>Interaction spatiale (matrice de flux)</strong> : (modélisation, flux dominants…)</p></li>
+</ul>
+<p><strong>La transformation géométrique des données étudiées (ex : points vers surface ou l’inverse) est une étape récurrente en analyse spatiale.</strong></p>
+</div>
 </section>
 <section id="test" class="slide level2">
 <h2>Test</h2>
@@ -347,7 +453,7 @@ Méthodologies spatiales :
 <h2>Code</h2>
 <p>When you click the <strong>Render</strong> button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>

@@ -40,93 +40,278 @@ css: style.css
 
 ---
 
-## Définition
+## Analyse spatiale ?
 
+\
 
-> « Analyse formalisée de la configuration et des propriétés de l’espace géographique, tel qu’il est produit et vécu par les sociétés humaines.»
+> « *Analyse formalisée de la configuration et des propriétés de l’espace géographique, tel qu’il est produit et vécu par les sociétés humaines.* »
 >
 > Pumain D., Saint-Julien Th., 2010, Analyse spatiale - Localisations. Paris, Colin, Cursus, 162p
 
-> Une démarche « qui met l’accent sur l’identification de formes ou de structures spatiales, sur les relations entre les objets géographiques, sur les processus de changement. »
+\
+
+> Une démarche « *qui met l’accent sur l’identification de formes ou de structures spatiales, sur les relations entre les objets géographiques, sur les processus de changement.* »
 >
 > Feuillet et al., 2019
 
+\
+
+:::{.center}
+
 L’analyse spatiale est l’**ensemble de théories et de méthodes permettant d’explorer, de modéliser et d’interpréter des phénomènes en tenant compte de leur localisation géographique et des relations spatiales entre entités**.
 
-Approche **hypothético-déductive** (démarche nomothétique).
+&rarr; Approche **hypothético-déductive** (démarche nomothétique).
+
+:::
 
 
 ## Les fondamentaux
 
+::::{.columns}
 
-Trois idées clés :
+:::{.column width="100%"}
 
-- Elle s’appuie sur des données géoréférencées (avec des coordonnées dans l’espace).
-- Elle cherche à détecter des structures spatiales (clusters, gradients, ruptures).
-- Elle mobilise des outils de statistique, géomatique et modélisation.
+**L'analyse spatiale :**
+
+- S’appuie sur des **données géoréférencées** (avec des coordonnées dans l’espace);
+- Cherche à **détecter des structures spatiales** (clusters, gradients, ruptures);
+- Mobilise des outils de **statistique, géomatique et modélisation**.
     
+:::
+
+::::
+
+   
+::::{.columns}
     
-  Espace isotrope / anisotrope
+:::{.column width="25%"}
 
-Discret / continu
+![](img/js.png)
+:::
 
-Notions de distance, d’adjacence, de voisinage
+:::{.column width="5%"}
 
-## Analyse spatiale et géomatique 
+:::
 
-Place de l’analyse spatiale dans la géomatique : croisement entre géographie, statistique, informatique.
+:::{.column width="70%" }
 
-## Pourquoi faire ? Application
+:::{.center style="margin-top:30px;"}
 
-1. Comprendre la distribution des phénomènes
+**Un exemple historique** : Épidémie de choléra (1854)
 
-    Les phénomènes sociaux, économiques, environnementaux ne sont pas répartis de manière aléatoire dans l’espace.
+:::
 
-    L’analyse spatiale aide à identifier des motifs (clusters, gradients, ruptures) qui seraient invisibles dans des données non géographiques.
+:::{.soixantedix}
 
-Exemple : Les maladies infectieuses peuvent suivre des patterns géographiques liés à la densité de population ou aux infrastructures.
-2. Détecter des relations spatiales
+ \
 
-    Proximité géographique peut influencer les phénomènes : "les choses proches sont plus semblables" (1ʳᵉ loi de Tobler).
+John Snow est un médecin britannique. Ces travaux sur la propagation du choléra dans le quartier de Soho à Londres en 1854 lui ont valu une place importante dans l'histoire de l'épidémiologie et de l'analyse spatiale.
 
-    Cela permet de modéliser les interdépendances entre lieux : propagation, diffusion, concurrence.
+:::
 
-Exemple : Comment la proximité d’une gare augmente la valeur immobilière alentour.
-3. Aider à la prise de décision
+:::{columns}
 
-    Les décideurs publics, urbanistes, gestionnaires d’infrastructures utilisent l'analyse spatiale pour optimiser leurs choix.
-
-    Cela permet de cibler les interventions : où construire un hôpital, où renforcer la protection de l’environnement, etc.
-
-Exemple : Planification des secours en cas de catastrophe naturelle.
-4. Prendre en compte l’effet d’échelle et le contexte spatial
-
-    Les résultats changent selon l’échelle (quartier vs ville vs région) : c’est l’effet MAUP (Modifiable Areal Unit Problem).
-
-    Analyser l’espace permet d’adapter les méthodes au bon niveau d’analyse.
-
-Exemple : Le chômage peut paraître homogène à l’échelle régionale mais très contrasté à l’échelle communale.
-5. Aller au-delà des analyses classiques
-
-    Les méthodes statistiques standards ignorent souvent la position géographique des observations.
-
-    L’analyse spatiale ajoute une nouvelle dimension d’interprétation.
-
-Exemple : Deux quartiers avec le même taux de criminalité peuvent avoir des dynamiques spatiales très différentes (dispersion vs concentration).
-
-Analyser l’espace, c’est mieux comprendre, mieux expliquer et mieux agir sur les phénomènes complexes du monde réel.
+:::{.column width="60%" .soixantedix}
 
 
-## Notions théoriques fondamantales (I)
+\
+
+**Carte de J. Snow** indiquant les décès cholériques (points) survenus en août et septembre 1854 dans le quartier de Soho &rarr; 
+
+\
+\
+
+**John Snow va identifier la cause de l'épidémie de choléra en utilisant un procédé simple, mais innovant, qui repose sur le principe de fonctionnement de l'analyse spatiale...**
+
+
+
+:::
+
+:::{.column width="5%" }
+
+:::
+
+
+:::{.column width="30%" }
+
+![](img/carte_js.png)
+:::
+
+
+
+
+
+:::
+
+
+:::
+
+::::
+
+
+## Un exemple historique : Épidémie de choléra
+
+
+::::{.columns}
+
+:::{.column width="60%"}
+
+![](img/plan_js.jpg)
+
+:::
+
+:::{.column width="40%"}
+
+:::{style="margin-top:50px;"}
+
+John Snow va mettre en relation plusieurs couches d’information géographiques :
+
+- Un **plan du quartier** (rues)   
+- La **localisation des décès** (résidence)   
+- La **localisation des pompes à eau**   
+
+:::
+
+\
+
+![](img/zoom_js.jpg)
+
+:::
+
+
+::::
+
+
+## Un exemple historique : Épidémie de choléra
+
+**Cette mise en relation va lui permettre d'émettre une hypothèse sur la cause de l’épidémie.**
+
+
+::::{.columns}
+
+:::{.column width="60%"}
+
+![](img/simplify_js.png)
+
+:::
+
+:::{.column width="40%" .soixante}
+
+\
+
+Détail de la deuxième carte par points de Snow montrant l’**ajout de la ligne d’équidistance**. Cholera Inquiry Committee, *Report on the Cholera Outbreak in the Parish of St. James, Westminster during the Autumn of 1854*, Londres, Churchill, 1855, pp. 106-107.
+
+:::{.center}
+
+![](img/equidistance.png)
+:::
+
+:::
+
+::::
+
+
+
+## Un exemple historique : Épidémie de choléra {.scrollable}
+
+**Si John Snow avait utilisé un système d’information géographique….**
+
+::::{.columns}
+
+:::{.column width="57%"}
+
+![](img/pop_js.png)
+
+:::
+
+:::{.column width="43%"}
+
+![](img/potential_js.gif)
+
+:::
+
+::::
+
+::::{.columns}
+
+:::{.column width="47%"}
+
+![](img/voronoi_js.png)
+
+
+:::
+
+:::{.column width="53%"}
+
+![](img/star_js.png)
+
+:::
+
+::::
+
+
+
+## Pourquoi faire ? 
+
+\
+
+- [**Comprendre la distribution des phénomènes**]{.bigbis}   
+Ex : Répartition et diffusion des maladies infectieuses
+
+- [**Détecter des relations spatiales**]{.bigbis}   
+Ex : Prix immobiliers vs proximité spatiales
+
+- [**Prendre en compte l’effet d’échelle et le contexte spatial**]{.bigbis}   
+Ex : Le chômage peut paraître homogène à l’échelle régionale mais très contrasté à l’échelle communale.
+
+- [**Aller au-delà des analyses classiques**]{.bigbis}   
+Ex : Des quartiers avec le même taux de criminalité peuvent avoir des dynamiques spatiales différentes (dispersion vs concentration).
+
+- [**Aider à la prise de décision**]{.bigbis}   
+Ex : Localisation d'un poste de secours
+
+
+:::{.center .bigbis}
+
+**Analyser l’espace, c’est mieux comprendre, mieux expliquer et mieux agir sur les phénomènes complexes du monde réel.**
+
+:::
+
+
+## Analyse spatiale ≠ géomatique 
+
+\
+\
+
+
+:::{.center .bigquat}
+
+[**Analyse spatiale**]{.colour3 .bigbis}
+
+=
+
+[Concept de la géographie]{.colour}  
+ +   
+[Statistique(s)]{.colour}   
++    
+[Cartographie]{.colour}     
++    
+[Outils de la géomatique]{.colour3}     
+
+
+:::
+
+
+
+## Notions théoriques fondamentales (I)
 
 1er loi de la géographie de Waldo Tobler (1970)
 
 
-> « Tout est lié à tout, mais les choses proches sont plus liées que les choses éloignées. »
+> « *Tout est lié à tout, mais les choses proches sont plus liées que les choses éloignées.* »
 
-Signification :
 
-- Les phénomènes géographiques sont spatialement auto-corrélés. La proximité spatiale implique souvent une similarité : plus deux objets sont proches, plus ils ont de chances de partager des caractéristiques.
+Cela signifie que les phénomènes géographiques sont spatialement auto-corrélés. La proximité spatiale implique souvent une similarité : **plus deux objets sont proches, plus ils ont de chances de partager des caractéristiques.**
 
 **Loi fondamentale en analyse spatiale** : elle justifie l'utilisation d'outils qui prennent en compte l’emplacement.
 
@@ -137,7 +322,7 @@ Exemples : Les prix de l’immobilier varient plus en fonction de la proximité 
 
 
 
-## Notions théoriques fondamantales (I)
+## Notions théoriques fondamentales (II)
 
 2ᵉ loi de Tobler (1999, moins formelle)
 
@@ -149,6 +334,28 @@ La plupart des phénomènes varient de manière continue dans l’espace (ex : t
 
 
 Sans prendre en compte cette 2ᵉ loi, on risquerait d'appliquer des interpolations ou des modèles inadaptés.
+
+
+## Concepts et méthodes en analyse spatiale
+
+:::{.center}
+
+On peut appliquer différents concepts et méthodes d’analyse spatiale en fonction de la nature des données étudiées. Par exemple  :
+
+
+- **Lieux et semis de points (données ponctuelles)** : mesure de centre, de la dispersion, de concentration, de forme, de distance, de densité, d’interpolation, de potentiel…
+
+- **Lien et réseau (données linéaires)** : analyse de réseau/graphe…
+
+- **Surfaces et régions (données surfaciques)** : analyse de l’hétérogénéité, de homogénéité, calcul des discontinuités, de l’autocorrélation, discrétisation spatiale et régionalisation…
+
+- **Interaction spatiale (matrice de flux)** :  (modélisation, flux dominants…)
+
+
+**La  transformation géométrique des données étudiées (ex : points vers surface ou l’inverse) est une étape récurrente en analyse spatiale.**
+
+:::
+
 
 ## Test 
 
