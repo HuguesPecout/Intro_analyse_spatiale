@@ -1,6 +1,6 @@
 ---
 title: "Introduction à l'analyse spatiale"
-subtitle: "Master Ii Géomatique, USSEIN"
+subtitle: "Master II Géomatique, USSEIN"
 author: "Hugues Pecout"
 institute: UMR8504 Géographie-Cités 
 img : img/cnrs.png
@@ -305,43 +305,85 @@ Ex : Localisation d'un poste de secours
 
 ## Notions théoriques fondamentales (I)
 
-1er loi de la géographie de Waldo Tobler (1970)
+:::{.columns .bigbis}
+
+:::{.column width="81%"}
+
+
+**1er loi de la géographie** de [Waldo Tobler](https://fr.wikipedia.org/wiki/Waldo_Tobler) (1970)
 
 
 > « *Tout est lié à tout, mais les choses proches sont plus liées que les choses éloignées.* »
 
 
-Cela signifie que les phénomènes géographiques sont spatialement auto-corrélés. La proximité spatiale implique souvent une similarité : **plus deux objets sont proches, plus ils ont de chances de partager des caractéristiques.**
+**Loi fondamentale** en analyse spatiale qui justifie l'utilisation d'outils qui prennent en compte l’emplacement.
 
-**Loi fondamentale en analyse spatiale** : elle justifie l'utilisation d'outils qui prennent en compte l’emplacement.
+:::
 
-👉 Concepts de dépendance, de proximité, d’interaction, d'autocorrélation
+:::{.column width="19%"}
+
+![](img/Waldo_Tobler_2007.jpg)
+
+:::
+
+:::
+
+:::{.bigbis}
 
 
-Exemples : Les prix de l’immobilier varient plus en fonction de la proximité immédiate que de tendances globales.
+**Les phénomènes géographiques sont spatialement auto-corrélés**. La proximité spatiale implique souvent une similarité : **plus deux objets sont proches, plus ils ont de chances de partager des caractéristiques.**
 
+\
 
+👉 Les prix de l’immobilier varient plus en fonction de la proximité immédiate que de tendances globales...
+
+:::
 
 ## Notions théoriques fondamentales (II)
 
-2ᵉ loi de Tobler (1999, moins formelle)
 
-> « Le phénomène géographique couvre l’espace continûment, sauf là où il ne le fait pas. »
+:::{.columns .bigbis}
 
-Signification :
+:::{.column width="81%"}
 
-La plupart des phénomènes varient de manière continue dans l’espace (ex : température, densité de population…). Mais des discontinuités existent (ex : falaises, rivières, frontières administratives). Cette loi est un rappel que l’espace n'est pas toujours homogène ni sans rupture.
 
+**2ᵉ loi de Tobler** (1999, moins formelle)
+
+> « *Le phénomène spatial est plus intéressant lorsqu’il ne suit pas la première loi de Tobler.* »
 
 Sans prendre en compte cette 2ᵉ loi, on risquerait d'appliquer des interpolations ou des modèles inadaptés.
 
 
+:::
+
+:::{.column width="19%"}
+
+![](img/Waldo_Tobler_2007.jpg)
+
+:::
+
+:::
+
+:::{.bigbis}
+
+La plupart des phénomènes varient de manière continue dans l’espace (ex : température, densité de population…). Mais **des discontinuités existent** (ex : falaises, rivières, frontières administratives). Cette loi est un rappel que **l’espace n'est pas toujours homogène ni sans rupture**.
+
+\
+
+👉 Deux quartiers voisins mais très différents : Riche et faiblement peuplé vs pauvre et dense
+
+
+:::
+
+
+
 ## Concepts et méthodes en analyse spatiale
 
-:::{.center}
+:::{.bigbis}
 
 On peut appliquer différents concepts et méthodes d’analyse spatiale en fonction de la nature des données étudiées. Par exemple  :
 
+\
 
 - **Lieux et semis de points (données ponctuelles)** : mesure de centre, de la dispersion, de concentration, de forme, de distance, de densité, d’interpolation, de potentiel…
 
@@ -351,85 +393,268 @@ On peut appliquer différents concepts et méthodes d’analyse spatiale en fonc
 
 - **Interaction spatiale (matrice de flux)** :  (modélisation, flux dominants…)
 
+\
 
-**La  transformation géométrique des données étudiées (ex : points vers surface ou l’inverse) est une étape récurrente en analyse spatiale.**
+**La  transformation géométrique des données étudiées et le changement d'échelle sont des étapes récurrentes en analyse spatiale.**
 
 :::
 
 
-## Test 
+## Analyse spatiale (avec R) {.scrollable}
 
-Ces lois fondent l'usage de matrices de voisinage, indices d’autocorrélation spatiale (Moran's I, Getis-Ord), lissage spatial et modèles spatiaux.
+\
 
-Elles expliquent pourquoi on ne peut pas utiliser naïvement des méthodes statistiques classiques sans ajuster pour les effets spatiaux.
+::: columns
+::: {.column width="50%"}
 
+**Packages indispensables :**
 
+-   `sf` : Manipulation de vecteur, géotraitements
+-   `terra` : Manipulation de raster, géotraitements
+-   `mapsf` : Cartographie thématique
 
-1. La 1ʳᵉ loi de Tobler est la base conceptuelle de l’analyse spatiale
+\
 
-    « Tout est lié à tout, mais les choses proches sont plus liées que les choses éloignées. »
+Package pour l'**analyse de réseau** :
 
-    Cela veut dire que la localisation géographique a un impact sur les valeurs observées.
-
-    Dans l’analyse spatiale :
-
-        On s’attend à trouver des corrélations entre les objets proches dans l’espace.
-
-        On doit mesurer et prendre en compte cette dépendance spatiale.
-
-🔹 Sans cette loi, il ne serait pas pertinent de chercher des modèles spatiaux — car les phénomènes seraient complètement indépendants dans l’espace.
-2. La 1ʳᵉ loi justifie des outils d'analyse spécifiques
-
-    Statistiques spatiales :
-
-        Mesures d’autocorrélation spatiale : Moran’s I, Geary’s C, Getis-Ord Gi.
-
-        Analyses de clusters locaux (LISA).
-
-    Modèles spatiaux :
-
-        Régressions spatiales (qui corrigent l’effet de voisinage).
-
-        Modèles de diffusion spatiale (par ex. épidémies, innovations).
-
-    Méthodologies spatiales :
-
-        Construire des matrices de voisinage (qui est proche de qui ?)
-
-        Utiliser des pondérations spatiales.
-
-3. La 2ᵉ loi éclaire l’analyse des surfaces continues
-
-    « Les phénomènes varient de façon continue, sauf rupture. »
-
-    Cela aide à choisir les bonnes méthodes :
-
-        Pour des surfaces continues (ex : température, pollution) → interpolations spatiales (IDW, krigeage).
-
-        Attention aux discontinuités (ex : barrières naturelles ou administratives) qu’il faut modéliser correctement.
-
-🔹 Sans prendre en compte cette 2ᵉ loi, on risquerait d'appliquer des interpolations ou des modèles inadaptés.
+-   `igraph` : Analyse de réseaux
+-   `sfnetworks` : Analyse des réseaux géospatiaux
+-   `stplanr` : Planification et de modélisation des transports
+:::
 
 
-Loi de Tobler | Impact sur l’analyse spatiale
-1ʳᵉ loi : Proximité = Similarité | Justifie l’étude des corrélations spatiales et des clusters
-2ᵉ loi : Continuité sauf rupture | Guide les choix de modèles pour variables continues ou discontinues
 
-## Méthode et outil de base
+::: {.column width="50%"}
 
-### Statistiques spatiales exploratoires
+Divers packages pour l'**analyse spatiale** :
 
-### Analyse des relations spatiales
+-   `spatstat` : Analyse statistique de semis de points
+-   `gstat` : Variogram et Krigeage
+-   `rgeoda` : Geoda avec R
+-   `GWmodel`, `spgwr` : Geographically Weighted Models
+-   `potential` : Modèle des potentiels de Stewart.
+-   `mapiso` : Conversion Raster vers polygone
+-   `valh` : Service de routage (OpenStreetMap)
+-   `osrm` : Service de routage (OpenStreetMap)
+-   `distanamo` : Création de cartogrammes de distance
+-   `...`
 
-### Régression spatiale (vue d’ensemble)
 
-## Avec R ?
+:::
+:::
+
+\
 
 
-## Code
+<center>
+[**Exemple : analyse d'un semis de points**]{.bigquat}
+</center>
 
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+\
+
+[**A. Collecte de données OpenStreetMap**]{.bigone}
+
 
 ```{r}
-1 + 1
+#| eval: true
+#| message: false
+#| warning: false
+#| code-fold: true
+
+library(sf)
+library(osmdata)
+library(mapsf)
+
+bbox_avignon <- getbb("Paris")
+semis_points <-  bbox_avignon |> 
+  opq(osm_types = "node")|>
+  add_osm_feature(key = 'amenity', value = "restaurant") |>
+  osmdata_sf() |>
+  _$osm_points |>
+  st_transform("EPSG:3857") |>
+  mf_map(cex = 1)
 ```
+
+\
+
+[**B. Répartition du semis de point dans un maillage territorial**]{.bigone}
+
+```{r}
+#| code-fold: true
+#| eval: true
+#| message: false
+#| warning: false
+
+# Import du découpage IRIS
+iris <- st_read("data/paris.gpkg", layer = "IRIS", quiet = TRUE)
+
+# Intersection poitn / maillage
+inter <- st_intersects(iris, semis_points, sparse = TRUE)
+
+# Nb de restaurant par IRIS
+iris$nb_restaurant <- lengths(inter)
+
+# Affichage
+mf_map(iris, var = "nb_restaurant", type = "choro")
+
+```
+
+\
+
+[**C. Répartition du semis de point dans une grille régulière**]{.bigone}
+
+```{r}
+#| code-fold: true
+#| cache: true
+#| eval: true
+#| message: false
+#| warning: false
+
+# Création de la grille réguliére
+grid <- st_make_grid(x = semis_points, cellsize = 500)
+
+# Ajout d'un identifiant unique
+grid <- st_sf(ID = 1:length(grid), geom = grid)
+
+
+# Intersection points / grille
+inter2 <- st_intersects(grid, semis_points, sparse = TRUE)
+
+# Nombre de restaurants par carreau
+grid$nb_restaurant <- lengths(inter2)
+
+# Affichage
+mf_map(grid, var = "nb_restaurant", 
+       type = "choro", 
+       breaks=c(0,1,5,10,20,40,max(grid$nb_restaurant)))
+
+```
+
+
+\
+
+[**D. Densité (continue) d'un semis par la méthode de lissage par noyaux (KDE) :**]{.bigone}
+
+```{r}
+#| code-fold: true
+#| cache: true
+#| message: false
+#| warning: false
+library(sf)
+library(spatstat)
+
+# Conversion du semi de point en objet "ppp"
+p <- as.ppp(X = st_coordinates(semis_points), 
+            W = as.owin(st_bbox(semis_points)))
+
+# Calcul de la densité (KDE)
+ds <- density.ppp(x = p, 
+                  sigma = 300, 
+                  eps = 10, 
+                  positive = TRUE)
+
+# Affichage
+plot(ds)
+
+
+```
+
+
+
+\
+
+
+**Conversion de l'objet crée (`img`, package `spatstat`) en objet `SpatRaster` (package `terra`) :**
+
+
+
+```{r}
+#| code-fold: true
+#| cache: false
+#| message: false
+library(terra)
+
+# densité en restaurants / hectares
+r <- rast(ds) * 100 * 100
+
+# Assignation de la projection
+crs(r) <- sf::st_crs(semis_points)$wkt
+
+# Affichage 
+plot(r)
+
+```
+
+\
+
+**Transformation du Raster (`SpatRaster`) et polygone vectoriel (`sf`) :**
+
+
+```{r}
+#| code-fold: true
+#| cache: false
+#| warning: false
+
+
+library(mapiso)
+
+# Limites des classes
+maxval <- max(terra::values(r))
+bks <-  c(seq(0, floor(maxval), 0.5), maxval)
+
+# Transformation du raster en polygones
+iso_dens <- mapiso(r, breaks = bks)
+
+# Suppression de la première classe ([0, 1[)
+iso_dens <- iso_dens[-1, ]
+
+# Affichage
+mapsf::mf_raster(r)
+mapsf::mf_map(iso_dens, col = NA, add = TRUE)
+
+```
+
+\
+
+[**E. Densité (discrête) - Méthode des polygones de voronoï :**]{.bigone}
+
+```{r}
+#| code-fold: true
+#| cache: true
+#| warning: false
+
+Poly_voronoi <- semis_points |> 
+                  st_union() |> 
+                  st_voronoi() |> 
+                  st_collection_extract("POLYGON") |> 
+                  st_intersection(iris) |> 
+                  st_sf() |> 
+                  st_join(semis_points, st_intersects) |>
+                  st_cast("MULTIPOLYGON") 
+
+# Affichage
+mf_map(x=Poly_voronoi,
+       lwd=0.2, 
+       border ="grey40")
+
+```
+
+\
+
+**Calcul de la simili densité**
+
+```{r}
+#| code-fold: true
+#| cache: true
+#| warning: false
+
+# Calcul simili densité
+Poly_voronoi$area <- st_area(Poly_voronoi)
+Poly_voronoi$dens <- 1 / Poly_voronoi$area * 10000
+
+# Affichage densité discrète
+mf_map(x=Poly_voronoi, var="dens", type="choro", border =NA)
+
+```
+
+
