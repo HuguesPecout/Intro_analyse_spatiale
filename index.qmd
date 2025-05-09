@@ -657,4 +657,21 @@ mf_map(x=Poly_voronoi, var="dens", type="choro", border =NA)
 
 ```
 
+## TD - Mise en pratique
+
+\
+\
+\
+
+[TD1 : [Distances et accessibilité](data/TD2.pdf)]{.bigquat}
+
+\
+
+[TD2 : [Réseaux et graphes](data/TD3.pdf)]{.bigquat}
+
+\
+
+[TD3 : [Flux, échanges, attractions : les intéraction spatiales](data/TD6.pdf)]{.bigquat}
+
+
 
